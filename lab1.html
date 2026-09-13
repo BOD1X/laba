@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторне заняття №1. Основи HTML</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+        }
+
+        header {
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #2b6cb0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2b6cb0;
+        }
+
+        .required::after {
+            content: " *";
+            color: #e53e3e;
+        }
+
+        input[type="submit"] {
+            background-color: #2b6cb0;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1a4e8a;
+        }
+
+        .hint {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Лабораторне заняття №1. Основи HTML</h1>
+        <nav>
+            <!-- Посилання на сторінку зі списком лабораторних -->
+            <a href="labs-list.html">← Список усіх лабораторних робіт</a>
+        </nav>
+        <p>Форма реєстрації користувача. Поля, позначені зірочкою (*), є обов'язковими.</p>
+    </header>
+
+    <!--
+        Атрибут action містить URL, згенерований на сайті https://webhook.site/
+        Замініть значення на власне унікальне посилання, отримане у вашому кабінеті webhook.site
+    -->
+    <form action="https://webhook.site/YOUR-UNIQUE-ID" method="POST">
+
+        <fieldset>
+            <legend>Особисті дані</legend>
+
+            <div class="form-group">
+                <label for="firstname" class="required">Ім'я</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Введіть ваше ім'я" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastname" class="required">Прізвище</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Введіть ваше прізвище" required>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">Дата народження</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Стать</label>
+                <select id="gender" name="gender">
+                    <option value="">— Оберіть —</option>
+                    <option value="female">Жіноча</option>
+                    <option value="male">Чоловіча</option>
+                    <option value="other">Інше</option>
+                    <option value="not_specified">Не вказувати</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Дані для входу</legend>
+
+            <div class="form-group">
+                <label for="email" class="required">Електронна пошта</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="required">Пароль</label>
+                <input type="password" id="password" name="password" minlength="6" required>
+                <div class="hint">Мінімум 6 символів</div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password" class="required">Підтвердження паролю</label>
+                <input type="password" id="confirm_password" name="confirm_password" minlength="6" required>
+            </div>
+        </fieldset>
+
+        <div class="form-group">
+            <input type="submit" value="Зареєструватися">
+        </div>
+
+    </form>
+
+</body>
+</html>
